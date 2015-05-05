@@ -3,12 +3,12 @@
 #define N2 3
 int main()
 {
-	int i,j,a[N1][N2],maxr[N1],loca,an[10],n=0,row,r[10],c[10],t,f=0;
+	int i,j,a[N1][N2],maxr[N1],loca,an,row,r,c,f=0,flag=0;
 	printf("请输入二维数组\n");
 	for(i=0;i<N1;i++)
 	{
 		maxr[i]=0;
-		an[i]=r[i]=c[i]=0;
+		an=r=c=0;
 		for(j=0;j<N2;j++)
 		{
 			scanf("%d",&a[i][j]);
@@ -42,22 +42,20 @@ int main()
 		}
 		if(f==N1)
 		{
-            n++;
-			an[n]=maxr[i];
-			r[n]=i+1;
-			c[n]=loca+1;
+			an=maxr[i];
+			r=i+1;
+			c=loca+1;
 			f=0;
+			flag=1;
+			break;
 		}
 	}
-	if(n==0)
+	if(!flag)
 		printf("没有鞍点\n");
 	else
 	{
-		printf("有%d个鞍点,分别为\n",n);
-	    for(t=1;t<=n;t++)
-		{
-			printf("鞍点值为%d, 坐标为:第%d行,第%d列)\n",an[t],r[t],c[t]);
-		}
+		printf("有鞍点\n");
+		printf("鞍点值为%d, 坐标为:第%d行,第%d列\n",an,r,c);
 	}
     return 0;
 }
