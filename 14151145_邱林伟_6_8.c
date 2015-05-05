@@ -22,9 +22,9 @@ void main()
 	   {if(m[i]>a[j][r[i]])//看它是不是这一列的最小值
 		f=0;}
 		 if(f==1)
-          {printf("鞍点为:a[%d][%d]=%d\n",i,r[i],m[i]);s=s+1;}
+        {printf("鞍点为:a[%d][%d]=%d\n",i,r[i],m[i]);s=s+1;}
            f=1;
 	}
-    if(f==0)
+    if(s==0)
     printf("鞍点不存在\n");
 }
