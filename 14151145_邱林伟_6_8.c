@@ -1,22 +1,24 @@
 #include<stdio.h>
 void main()
 {
-	printf("请输入一个二维数组:\n");
-	int a[4][5],i,j,m[5],r[5]={0},f=1;
-	for(i=0;i<4;i++)
-	{for(j=0;j<5;j++)
-	scanf("%d",&a[i][j]);}//以输入四行五列的二维数组为例
-    for(i=0;i<4;i++)
+	int a[100][100],i,j,X,Y,m[100],r[100]={0},f=1;
+	printf("请输入数组的行数和列数：");
+	scanf("%d %d",&X,&Y);
+	printf("请输入一个%d行%d列的二维数组：\n",X,Y);
+	for(i=0;i<X;i++)
+	{for(j=0;j<Y;j++)
+	scanf("%d",&a[i][j]);}//输入二维数组
+    for(i=0;i<X;i++)
 	{
 		m[i]=a[i][0];
-	    for(j=0;j<5;j++)
+	    for(j=0;j<Y;j++)
 		{if(a[i][j]>m[i])
 	      m[i]=a[i][j];//求出一行中最大值
 	      r[i]=j;}
 	}
-	for(i=0;i<4;i++)
+	for(i=0;i<X;i++)
 	{
-		for(j=0;j<4;j++)
+		for(j=0;j<X;j++)
 		{if(m[i]>a[j][r[i]])//看它是不是这一列的最小值
 		f=0;}
 		if(f==0) continue;
