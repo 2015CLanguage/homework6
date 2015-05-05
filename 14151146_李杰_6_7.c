@@ -10,7 +10,7 @@ int main()
 	}
 	j=n/2;
 	a[0][j]=1;
-	for(k=2;k<=n*n;k++)
+	for(i=1,k=2;k<=n*n;k++)
 	{
 		p=i;q=j;//储存上一个数的位置
 		i=i-1;j=j+1;
