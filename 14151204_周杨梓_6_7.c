@@ -1,0 +1,65 @@
+#include<stdio.h>
+int main()
+{
+	int a[50][50]={0},n,i,j,l,c,line,column;
+	printf("请输入一个小于50的奇数:");
+	scanf("%d",&n);
+	a[1][(n+1)/2]=1;
+	line=1;
+	column=(n+1)/2;
+	for(i=2;i<=n*n;i++)
+	{
+		if(line==1 && column==n)
+		{
+			a[2][n]=i;
+			line=2;
+			column=n;
+			continue;
+		}
+		else
+		{
+		    if(line==1)
+			{
+				l=line;
+			    line=n;
+			}
+		    else
+			{
+				l=line;
+			    line=line-1;
+			}
+		    if(column==n)
+			{
+				c=column;
+			    column=1;
+			}
+		    else
+			{
+				c=column;
+			    column=column+1;
+			}
+		}
+		if(a[line][column]==0)
+		{
+			a[line][column]=i;
+			continue;
+		}
+		else
+		{
+			a[l+1][c]=i;
+			line=l+1;
+			column=c;
+			continue;
+		}
+	}
+	printf("%d阶魔方阵为:\n",n);
+	for(i=1;i<=n;i++)
+	{
+		for(j=1;j<=n;j++)
+		{
+			printf("%d ",a[i][j]);
+		}
+		printf("\n");
+	}
+	return 0;
+}
