@@ -9,7 +9,7 @@ int main(){
 	a[1][j]=1;
 	for (k=2;k<=lim;k++){
 		t=0;
-		if ((i==1)&&(j<=(n-1))&&(t==0)){
+		if ((i==1)&&(j<=n-1)&&(t==0)){
 			i=n;
 			j=j+1;
 			a[i][j]=k;
@@ -21,19 +21,25 @@ int main(){
 			a[i][j]=k;
 			t=1;
 		}
+		else if ((j==n)&&(i==1)&&(t==0)){
+			i=i+1;
+			a[i][j]=k;
+			t=1;
+		}
 		else if ((a[i-1][j+1]!=0)&&(t==0)){
 			i=i+1;
 			a[i][j]=k;
 			t=1;
 		}
-		else if (t==0)
+		else if (t==0){
 			j=j+1;
 			i=i-1;
 			a[i][j]=k;
 			t=1;
+		}
 	}
-	for (i=0;i<=n+1;i++){
-		for(j=0;j<=n+1;j++){
+	for (i=1;i<=n;i++){
+		for(j=1;j<=n;j++){
 			printf("%4d",a[i][j]);
 		}
 		printf("\n");
