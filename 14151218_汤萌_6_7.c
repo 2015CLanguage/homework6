@@ -1,69 +1,50 @@
 #include<stdio.h>
 int main()
 {
-	int n, i=0, i_1, j=0, j_1, k, x=0;
-	int a[15][15]={0};
+	int n, i = 0, j = 0, k;
+	int a[15][15] = { 0 };
 	printf("\n请输入15以内的奇数。");
 	scanf_s("%d", &n);
-	while (n%2==0)
+	while (n % 2 == 0)
 	{
 		printf("\n请输入奇数。");
 		scanf_s("%d", &n);
 	}
-
-	j=n/2;
-	a[0][j]=1;
-	for (k=2; k<n*n+1; k++)
+	printf("%d×%d魔方阵为：\n", n, n);
+	j = n / 2;
+	a[0][j] = 1;
+	for (k = 2; k < n*n + 1; k++)
 	{
-		i_1=i;
-		j_1=j;
-		if(i-1<0 && j+1<=n-1)
+		i--;
+		j++;
+		if (i < 0 && j > n - 1)
 		{
-			i=n-1;
-			j=j+1;
-			x=1;
-			printf("change%d\n", i);
+			i+=2;
+			j--;
 		}
-		
-		if(j+1>n-1 && i-1>=0)
+		else if (i < 0)
 		{
-			j=0;
-			i=i-1;
-			x=1;
-			printf("change%d\n", j);
+			i = n - 1;
 		}
-		
-		if(j>n-1 && i-1<0)
+		else if (j > n - 1)
 		{
-			i=1;
-			j=n-1;
-			x=1;
-			printf("change%d, %d\n", i, j);
+			j = 0;
 		}
-		
-		if (x==0)
+		if (a[i][j] != 0)
 		{
-			i--;
-			j++;
+			i=i+2;
+			j--;
+			if (i > n - 1)
+				i = 0;
+			if (j < 0)
+				j = n - 1;
 		}
-
-		if (a[i][j]!=0)
-		{
-			i=i+1;
-			x=1;
-		}
-		
-
-
-		printf("\n%d, %d\n, %d\n", i, j, k);
-		a[i][j]=k;
-		printf("%d", a[i][j]);
-		
+		a[i][j] = k;
 	}
-	for (i=0; i<n; i++)
+	for (i = 0; i < n; i++)
 	{
-		for (j=0; j<n; j++)
-			printf("%6d", a[i][j]);
+		for (j = 0; j < n; j++)
+			printf("%5d", a[i][j]);
 		printf("\n");
 	}
 	return 0;
