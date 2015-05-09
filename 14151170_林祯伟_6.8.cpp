@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include<stdio.h>              //xt6-8     矩阵的鞍点 
 #define M 3
 #define N 3
 
@@ -20,12 +20,13 @@ int main()
 	
 	for(g=0;g<M;g++)                          //g，k为行，h为列，ht标记行内最大值所在的h列 
 	{
-		max=a[g][0];
+		max=a[g][0];ht=0;                     //此处初始化ht！！！ 
 		for(h=0;h<N;h++)
 		{
 			if(a[g][h]>max) {max=a[g][h];ht=h;}
 		}
 		//printf("max=%d.\n",max);
+		//printf("a[]=%d.\n",a[g][ht]);
 		//////
 		min=1;                //这里min当成标记变量,以检测后续是否输出语句 
 		for(k=0;k<M;k++)
