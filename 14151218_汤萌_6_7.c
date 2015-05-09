@@ -4,7 +4,7 @@ int main()
 	int n, i = 0, j = 0, k;
 	int a[15][15] = { 0 };
 	printf("\n请输入15以内的奇数。");
-	scanf_s("%d", &n);
+	scanf("%d", &n);
 	while (n % 2 == 0)
 	{
 		printf("\n请输入奇数。");
