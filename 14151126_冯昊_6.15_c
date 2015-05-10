@@ -1,0 +1,13 @@
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+	char s1[20],s2[20];           //定义数组s1,用于接收s2的数据
+	int i,n;
+	printf("请输入s2:");
+	scanf("%s",s2);              //获取s2的数值
+	n=strlen(s2)
+	for(i=0;i<=n;i++)            //逐项复制
+		s1[i]=s2[i];
+	printf("s1:%s\n",s1);//输出
+}
